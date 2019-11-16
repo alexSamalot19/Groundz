@@ -1,4 +1,4 @@
-{
+node{
     "files.exclude": {
         ".history": true
     },

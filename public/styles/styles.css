@@ -1,3 +1,29 @@
+
+body{
+  font-family: 'Roboto Slab', serif;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
+
+.jumbotron{
+  background-color: #394a6d;
+  
+}
+
+#headline{}
+
+#topSection{
+  background-image:linear-gradient(to right bottom,
+  rgba(60, 157, 155, 0.8),
+   rgba(40, 180, 131, 0.8)),url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) ;
+  height: 75vh;
+  /* background-image: url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260); */
+  background-position: center;
+  color: #3c4245;
+}
+
+/* #nameInput{
+  margin-left: -340px;
+} */
