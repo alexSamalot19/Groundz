@@ -36,9 +36,9 @@ module.exports = function (app) {
   });
 
   // Get the Park Name from the home page an example by id
-  app.get"/api/examples/:parkName", async (req, res) => {
-
-    axios.get("https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z").then(
+  app.get"/api/parks/:parkName", async (req, res) => {
+    const {parkName} = req.params
+    const {data} = axios.get("https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z").then(
       function (response) {
         console.log("The response object: " + response);
       })
