@@ -30,14 +30,13 @@ var API = {
   }
 };
 
-
-const getParkData = async (input) => {
+const getParkData = async input => {
   // const input =  $('#example-description').value
   const res = await fetch(`/api/parks/${input}`, {
-    method: 'GET',
-  })
-  // res.json()
-}
+    method: "GET"
+  });
+  res.json();
+};
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
@@ -87,13 +86,11 @@ var handleFormSubmit = function(event) {
   //   refreshExamples();
   //  });
 
-    const input = $exampleDescription.val().trim()
+  const input = $exampleDescription.val().trim();
   getParkData(input);
- 
 
   $exampleText.val("");
   $exampleDescription.val("");
-
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
