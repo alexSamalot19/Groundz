@@ -36,11 +36,16 @@ module.exports = function (app) {
   });
 
   // Get the Park Name from the home page an example by id
-  app.get"/api/examples/:parkName", async (req, res) => {
-
-    axios.get("https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z").then(
+  app.get("/api/parks/:parkName", async (req, res) => {
+    const {parkName} = req.params
+    const {data} = axios.get("https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z").then(
       function (response) {
-        console.log("The response object: " + response);
+        // for(let i =0; i<response.length; i++){
+        //   console.log("this is the response"+response.data[i])
+        // }
+        console.log(response.data.data[0].states);
+
+
       })
       .catch(function (error) {
         if (error.response) {
@@ -64,7 +69,7 @@ module.exports = function (app) {
       });
 
     try {
-      console.log("It worked!")
+      console.log("it's good");
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
