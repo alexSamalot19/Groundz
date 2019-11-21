@@ -35,48 +35,45 @@ module.exports = function(app) {
   });
 
   // Get the Park Name from the home page an example by id
-  app.get("/api/parks/:parkName", async (req, res) => {
-    try {
-      const { parkName } = req.params;
-      console.log("afgadfgdfhsdfhsdhsdhs");
-      const { data } = await axios.get(
-        "https://developer.nps.gov/api/v1/parks?parkCode=&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
-      );
-      console.log(data);
-      res.json(data);
-    } catch (err) {
-      console.error(err);
-      res.sendStatus(500);
-    }
-    //   .then(function(response) {
-    //   console.log(response.data.data[0].states);
-    //   console.log(parkName);
-    // })
-    //   .catch(function(error) {
-    //     if (error.response) {
-    //       // The request was made and the server responded with a status code
-    //       // that falls out of the range of 2xx
-    //       console.log("---------------Data---------------");
-    //       console.log(error.response.data);
-    //       console.log("---------------Status---------------");
-    //       console.log(error.response.status);
-    //       console.log("---------------Status---------------");
-    //       console.log(error.response.headers);
-    //     } else if (error.request) {
-    //       // The request was made but no response was received
-    //       // `error.request` is an object that comes back with details pertaining to the error that occurred.
-    //       console.log(error.request);
-    //     } else {
-    //       // Something happened in setting up the request that triggered an Error
-    //       console.log("Error", error.message);
-    //     }
-    //     console.log(error.config);
-    //   });
+  app.get("/api/parks/:stateName", async (req, res) => {
+    const { stateName } = req.params;
+    const { data } = axios
+      .get(
+        "https://developer.nps.gov/api/v1/parks?stateCode=" +
+          stateName +
+          "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
+      )
+      .then(function(response) {
+        for (let i = 0; i < response.data.data.length; i++) {
+          console.log("PARK:  " + response.data.data[i].name);
+        }
+        // console.log(response.data.data[0].name);
+      })
+      .catch(function(error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log("---------------Data---------------");
+          console.log(error.response.data);
+          console.log("---------------Status---------------");
+          console.log(error.response.status);
+          console.log("---------------Status---------------");
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an object that comes back with details pertaining to the error that occurred.
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
 
-    // try {
-    //   console.log("it's good");
-    // } catch (error) {
-    //   res.status(400).json({ error: { name: error.name, msg: error.message } });
-    // }
+    try {
+      console.log("it's good");
+    } catch (error) {
+      res.status(400).json({ error: { name: error.name, msg: error.message } });
+    }
   });
 };
