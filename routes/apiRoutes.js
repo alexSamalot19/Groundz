@@ -37,7 +37,8 @@ module.exports = function(app) {
   // Get the Park Name from the home page an example by id
   app.get("/api/parks/:stateName", async (req, res) => {
     const { stateName } = req.params;
-    const { data } = axios
+    // const { data } =
+    axios
       .get(
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
           stateName +
