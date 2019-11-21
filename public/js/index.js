@@ -30,6 +30,14 @@ var API = {
   }
 };
 
+const getParkData = async input => {
+  // const input =  $('#example-description').value
+  const res = await fetch(`/api/parks/${input}`, {
+    method: "GET"
+  });
+  res.json();
+};
+
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
@@ -74,9 +82,12 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  // API.saveExample(example).then(function() {
+  //   refreshExamples();
+  //  });
+
+  const input = $exampleDescription.val().trim();
+  getParkData(input);
 
   $exampleText.val("");
   $exampleDescription.val("");
