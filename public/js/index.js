@@ -7,6 +7,7 @@ var $exampleList = $("#example-list");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
+    console.log(example);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -83,9 +84,9 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  // API.saveExample(example).then(function() {
-  //   refreshExamples();
-  //  });
+  API.saveExample(example).then(function() {
+    refreshExamples();
+  });
   input = $exampleDescription.val().trim();
   // const input = $exampleDescription.val().trim();
   console.log(input);
