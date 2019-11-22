@@ -37,9 +37,17 @@ const getParkData = async input => {
     method: "GET"
   });
   res.json();
-  console.log("hyugyugfuytu", input);
+  console.log("creating", input);
 };
 
+const groundzData = async stateToGroundz => {
+  // const input =  $('#example-description').value
+  const res = await fetch(`/api/groundz/${stateToGroundz}`, {
+    method: "GET"
+  });
+  res.json();
+  console.log("groundzing", stateToGroundz);
+};
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
@@ -51,13 +59,20 @@ var refreshExamples = function() {
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": example.id,
+          "data-description": example.description
         })
         .append($a);
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
+
+      $li.append($button);
+
+      var $button = $("<button>")
+        .addClass("btn btn-success float-left groundz")
+        .text("G");
 
       $li.append($button);
 
@@ -83,15 +98,17 @@ var handleFormSubmit = function(event) {
     alert("You must enter an example text and description!");
     return;
   }
+  // API.saveExample(example).then(function() {
 
-  API.saveExample(example).then(function() {
+  // });
+  const user = $exampleText.val().trim();
+  const ST = $exampleDescription.val().trim();
+  const input = user.concat(ST);
+
+  console.log(input);
+  getParkData(input).then(function() {
     refreshExamples();
   });
-  input = $exampleDescription.val().trim();
-  // const input = $exampleDescription.val().trim();
-  console.log(input);
-  getParkData(input);
-
   $exampleText.val("");
   $exampleDescription.val("");
 };
@@ -108,6 +125,21 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+// handleGroundzBtnClick is called when an example's Groundz button is clicked
+// Go to the  the example from the db and do the users prefered api calls
+var handleGroundzBtnClick = function() {
+  var stateToGroundz = $(this)
+    .parent()
+    .attr("data-description");
+
+  console.log("------====----", stateToGroundz);
+  groundzData(stateToGroundz);
+  // .then(function() {
+  //   refreshExamples();
+  // });
+};
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+$exampleList.on("click", ".groundz", handleGroundzBtnClick);
