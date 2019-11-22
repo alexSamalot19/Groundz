@@ -38,44 +38,27 @@ module.exports = function (app) {
   app.get("/api/parks/:stateName", async (req, res) => {
     const { stateName } = req.params;
     // const { data } =
-    const {data} = await axios
-      .get(
-        "https://developer.nps.gov/api/v1/parks?stateCode=" +
-          stateName +
-          "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
-      )
-        for (let i = 0; i < data.length; i++) {
-          console.log("PARK:  " + response.data.data[i].name);
-        }
-        // console.log(response.data.data[0].name);
-    
-      .catch(function(error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.log("---------------Data---------------");
-          console.log(error.response.data);
-          console.log("---------------Status---------------");
-          console.log(error.response.status);
-          console.log("---------------Status---------------");
-          console.log(error.response.headers);
-        } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an object that comes back with details pertaining to the error that occurred.
-          console.log(error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log("Error", error.message);
-        }
-        console.log(error.config);
-      });
+    const parkData = await axios.get(
+      "https://developer.nps.gov/api/v1/parks?stateCode=" +
+        stateName +
+        "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
+    );
+
+    const parkNames = parkData.data.data.map(it => ({
+      text: "A",
+      description: stateName,
+      park: it.name
+    }));
+
+    console.log(parkNames);
 
     try {
-      console.log("it's good");
+      await db.Example.bulkCreate(parkNames);
+      res.json(parkNames);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
-  });
+  });;
 };
 
 
