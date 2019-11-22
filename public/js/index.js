@@ -82,6 +82,9 @@ var handleFormSubmit = function(event) {
   if (!(example.text && example.description)) {
     alert("You must enter an example text and description!");
     return;
+  } else if (example.text.length <= 3) {
+    alert("Must be greater than 3 characters");
+    return;
   }
 
   API.saveExample(example).then(function() {

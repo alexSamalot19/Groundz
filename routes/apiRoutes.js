@@ -63,7 +63,6 @@ module.exports = function (app) {
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
-
   });
 };
   // app.get("/api/parks/weather", async (req, res) => {
