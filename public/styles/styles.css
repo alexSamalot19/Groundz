@@ -1,6 +1,10 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
 
 body{
-  font-family: 'Roboto Slab', serif;
+  
 }
 
 .list-group-item {
@@ -15,13 +19,31 @@ body{
 #headline{}
 
 #topSection{
+  font-family: 'Bungee', cursive;
+  /* font-family: 'Rubik', sans-serif; */
+  /* font-family: 'Gravitas One', cursive; */
+  /* font-family: 'Roboto Slab', serif; */
   background-image:linear-gradient(to right bottom,
   rgba(60, 157, 155, 0.8),
-   rgba(40, 180, 131, 0.8)),url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) ;
+   rgba(40, 180, 131, 0.8)),url(https://images.pexels.com/photos/361104/pexels-photo-361104.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) ;
   height: 75vh;
   /* background-image: url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260); */
   background-position: center;
-  color: #3c4245;
+  color: #f8f8f8;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
 }
 
 /* #nameInput{
