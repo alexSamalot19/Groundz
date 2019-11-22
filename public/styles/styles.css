@@ -16,7 +16,6 @@ body{
   
 }
 
-#headline{}
 
 #topSection{
   font-family: 'Bungee', cursive;
@@ -26,7 +25,7 @@ body{
   background-image:linear-gradient(to right bottom,
   rgba(60, 157, 155, 0.8),
    rgba(40, 180, 131, 0.8)),url(https://images.pexels.com/photos/361104/pexels-photo-361104.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) ;
-  height: 75vh;
+  height: 650px;
   /* background-image: url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260); */
   background-position: center;
   color: #f8f8f8;
@@ -115,4 +114,63 @@ body{
   -webkit-transform:rotateX(179.9deg);
   -moz-transform:rotateX(179.9deg);
   transform:rotateX(179.9deg);
+}
+
+/* //////////// */
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.20), -5px -5px 30px 7px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+    background-color:  rgba(60, 157, 155, 0.8);
+
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
 }
