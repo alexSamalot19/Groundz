@@ -16,14 +16,30 @@
     </div>
   </div>
 </div> --}}
-<a href="/example/{{this.id}}">
+<a class='col-4'href="/example/{{this.id}}">
 <div class="card 1">
   <div class="card_image"> <img src="https://images.pexels.com/photos/2331575/pexels-photo-2331575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" /> </div>
   <div class="card_title title-white">
     <p>{{this.text}}</p>
   
   
-     {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
+   
   </div>
+   <p><button class="btn btn-danger float-right delete" id='deleteme'onclick="deletemeButton()">ｘ</button></p> 
 </div>
 </a>
+
+<script>
+
+   let deletemeButton = async (id) => {
+    console.log('hey ', this.id)
+
+    let delCard = document.getElementById("deleteme").value;
+    await fetch(`/api/examples/${id}`, {
+      method: "destroy", headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+  };
+</script>

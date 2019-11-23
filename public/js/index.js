@@ -3,6 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var carddel = $("#cardDel");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -56,7 +57,7 @@ var refreshExamples = function() {
         })
         .append($a);
 
-      var $button = $("<button>")
+      var $button = $("<button >")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
 
@@ -117,6 +118,20 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+let deletemeButton = async id => {
+  console.log(id);
+
+  let delCard = document.getElementById("deleteme").value;
+  await fetch(`/api/examples/${id}`, {
+    method: "destroy",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  window.location.href = "/";
+};
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+carddel.on("click", deletemeButton());
