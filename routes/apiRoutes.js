@@ -45,24 +45,32 @@ module.exports = function (app) {
       stateName +
       "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
     );
-
+    const latLong = parkData.data.data[0].latLong.split(',');
+    const lat = parseFloat(latLong[0].slice(4));
+    const lon = parseFloat(latLong[1].slice(6));
     const numParks = parkData.data.data.length;
     console.log("\n >>>>><<<<< \n " + numParks);
     const parkNames = {
       text: userName,
       description: stateName,
-      numPark: numParks
+      numPark: numParks,
+      location: [lat, lon]
     };
-
     console.log(parkNames);
-
+    // ===================================================
+    const parkWeather = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=b426febecc2d6e6409afe07084149a30`
+    );
+    const weather = parkWeather.data;
+    console.log(weather);
+    // ==================================================
     try {
       await db.Example.create(parkNames);
-      res.json(parkNames);
+      res.json(weather);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
-        // const weather = await axios.get(
+    // const weather = await axios.get(
     //   "api.openweathermap.org/data/2.5/weather?lat=90&lon=-50&APPID=b426febecc2d6e6409afe07084149a30"
     // );
     // console.log(weather);
