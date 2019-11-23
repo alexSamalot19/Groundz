@@ -57,13 +57,8 @@ module.exports = function (app) {
     console.log(parkNames);
 
     try {
-<<<<<<< HEAD
-      await db.Example.bulkCreate(parkNames);
-      res.json(parkData.data.data[0].latLong);
-=======
       await db.Example.create(parkNames);
       res.json(parkNames);
->>>>>>> 33552efb3e0ca8298d93cfc6e926ce14089a6814
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
