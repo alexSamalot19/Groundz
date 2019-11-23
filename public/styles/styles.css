@@ -16,7 +16,9 @@ body {
 #headline{
   font-size: 70px;
 }
-
+.groundzimg{
+ margin-right: 90px;
+}
 .jumbotron {
   background-color: #394a6d;
 }

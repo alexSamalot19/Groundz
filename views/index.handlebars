@@ -18,9 +18,13 @@
 
 
 
+
 <div class="container-fluid text-center" id="topSection">
 
-  <p class="" id="headline">The Great Outdoors</p>
+
+
+
+  <p class="" id="headline"><span class="groundzimg"><img src="/images/320x120_horizontal_ground_logo_white-01.png" alt=""></span>The Great Outdoors</p>
   <hr>
   <h1>Where Life Starts</h1>
   <div class="container-fluid">
@@ -102,7 +106,7 @@
             </div>
 
           </div>
-  <button id="submit" class="btn btn-outline-light ">Submit</button>
+          <button id="submit" class="btn btn-outline-light ">Submit</button>
 
         </div>
 
@@ -128,7 +132,7 @@
 
 
 
-  {{!-- <div id="home">
+   <div id="home">
     <div class="container">
       <div class="row">
         <div class="col-8 offset-2">
@@ -141,20 +145,22 @@
 
           <ul id="example-list" class="list-group">
             {{#each examples}}
-            <li data-id="{{this.id}}" class="list-group-item">
+
+            {{>cards/card-block this}}
+            {{!-- <li data-id="{{this.id}}" class="list-group-item">
               <a href="example/{{this.id}}">{{this.text}}</a>
               <button class="btn btn-danger float-right delete">ｘ</button>
-            </li>
+            </li> --}}
             {{/each}}
           </ul>
         </div>
       </div>
     </div>
-  </div> --}}
+  </div> 
   <div class="container-fluid">
     <div class="row">
       <div class="col-4">
-        {{>cards/card-block}}
+        
 
       </div>
     </div>

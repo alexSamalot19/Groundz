@@ -99,7 +99,7 @@ var handleFormSubmit = function(event) {
 
   console.log(input);
   getParkData(input).then(function() {
-    refreshExamples();
+    window.location.href = "/";
   });
   $exampleText.val("");
   $exampleDescription.val("");
