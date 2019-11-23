@@ -118,25 +118,31 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// let deletemeButton = async id => {
-//   console.log(id);
+let deletemeButton = async id => {
+  console.log(id);
 
-//   let delCard = document.getElementById("deleteme").value;
-//   await fetch(`/api/examples/${id}`, {
-//     method: "destroy",
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//   });
-//   window.location.href = "/";
-// };
+  let delCard = document.getElementById("deleteme").value;
+  await fetch(`/api/examples/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(() => {
+    window.location.href = "/";
+  });
+};
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 // carddel.on("click", deletemeButton());
 $(document).ready(function() {
-  $("#cardDel").click(function() {
-    console.log("do someting");
+  $("#deleteme").click(function(evt) {
+    console.log(evt);
+    // evt.stopPropagation();
+    evt.stopImmediatePropagation();
+    debugger;
+    var id = $(this).attr("data-id");
+    deletemeButton(id);
   });
 });
