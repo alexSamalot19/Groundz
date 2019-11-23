@@ -37,7 +37,7 @@ const getParkData = async input => {
     method: "GET"
   });
   res.json();
-  console.log("hyugyugfuytu", input);
+  console.log("creating", input);
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
@@ -51,7 +51,8 @@ var refreshExamples = function() {
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": example.id,
+          "data-description": example.description
         })
         .append($a);
 
@@ -60,6 +61,12 @@ var refreshExamples = function() {
         .text("ｘ");
 
       $li.append($button);
+
+      // var $button = $("<button>")
+      //   .addClass("btn btn-success float-left groundz")
+      //   .text("G");
+
+      // $li.append($button);
 
       return $li;
     });
@@ -86,15 +93,17 @@ var handleFormSubmit = function(event) {
     alert("Must be greater than 3 characters");
     return;
   }
+  // API.saveExample(example).then(function() {
 
-  API.saveExample(example).then(function() {
+  // });
+  const user = $exampleText.val().trim();
+  const ST = $exampleDescription.val().trim();
+  const input = user.concat(ST);
+
+  console.log(input);
+  getParkData(input).then(function() {
     refreshExamples();
   });
-  input = $exampleDescription.val().trim();
-  // const input = $exampleDescription.val().trim();
-  console.log(input);
-  getParkData(input);
-
   $exampleText.val("");
   $exampleDescription.val("");
 };
