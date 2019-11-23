@@ -125,6 +125,14 @@ body {
   transform: rotateX(179.9deg);
 }
 
+/*404 and 400 pages */
+
+.center-y{
+	display: block;
+	margin-top: 200px;
+}
+
+
 /* //////////// */
 
 .cards-list {
@@ -353,6 +361,9 @@ body {
   top: 0;
   transform: rotate(-135deg);
 }
+
+
+
 
 
 /* ////////////// */
