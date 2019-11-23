@@ -63,29 +63,4 @@ module.exports = function(app) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
   });
-
-  // Get the users full search results
-  app.get("/api/groundz/:groundzName", async (req, res) => {
-    const { groundzName } = req.params;
-    console.log("\n >===oooo======< \n " + groundzName);
-    // const { data } =
-    const groundzData = await axios.get(
-      "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        groundzName +
-        "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
-    );
-
-    const groundzObj = groundzData.data.data.map(it => ({
-      text: "A",
-      description: groundzName,
-      park: it.name
-    }));
-
-    try {
-      console.log("\n >=================< \n " + groundzObj[0].description);
-      // console.log(groundzData);
-    } catch (error) {
-      res.status(400).json({ error: { name: error.name, msg: error.message } });
-    }
-  });
 };
