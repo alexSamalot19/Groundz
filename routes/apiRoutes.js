@@ -43,11 +43,6 @@ module.exports = function (app) {
       stateName +
       "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
     );
-    
-    // const weather = await axios.get(
-    //   "api.openweathermap.org/data/2.5/weather?lat=90&lon=-50&APPID=b426febecc2d6e6409afe07084149a30"
-    // );
-    // console.log(weather);
 
     const parkNames = parkData.data.data.map(it => ({
       text: "A",
@@ -59,10 +54,14 @@ module.exports = function (app) {
 
     try {
       await db.Example.bulkCreate(parkNames);
-      res.json(parkNames);
+      res.json(parkData.data.data[0].latLong);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
+        // const weather = await axios.get(
+    //   "api.openweathermap.org/data/2.5/weather?lat=90&lon=-50&APPID=b426febecc2d6e6409afe07084149a30"
+    // );
+    // console.log(weather);
   });
 };
   // app.get("/api/parks/weather", async (req, res) => {
