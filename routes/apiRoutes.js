@@ -35,8 +35,10 @@ module.exports = function(app) {
   });
 
   // Get the Park Name from the home page an example by id
-  app.get("/api/parks/:stateName", async (req, res) => {
-    const { stateName } = req.params;
+  app.get("/api/parks/:allName", async (req, res) => {
+    const { allName } = req.params;
+    const stateName = allName.slice(-2);
+    const userName = allName.slice(0, -2);
     // const { data } =
     const parkData = await axios.get(
       "https://developer.nps.gov/api/v1/parks?stateCode=" +
@@ -44,16 +46,18 @@ module.exports = function(app) {
         "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
     );
 
-    const parkNames = parkData.data.data.map(it => ({
-      text: "A",
+    const numParks = parkData.data.data.length;
+    console.log("\n >>>>><<<<< \n " + numParks);
+    const parkNames = {
+      text: userName,
       description: stateName,
-      park: it.name
-    }));
+      numPark: numParks
+    };
 
     console.log(parkNames);
 
     try {
-      await db.Example.bulkCreate(parkNames);
+      await db.Example.create(parkNames);
       res.json(parkNames);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
