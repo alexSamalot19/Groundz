@@ -34,24 +34,26 @@ module.exports = function(app) {
           "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
       );
 
-      const groundzObj = groundzData.data.data.map(it => ({
-        text: "A",
-        description: groundzName,
-        park: it.name
+      const example = groundzData.data.data.map(it => ({
+        User: dbExample.dataValues.text,
+        Name: it.fullName,
+        Weather: it.weatherInfo,
+        Description: it.description
       }));
 
       try {
-        console.log("\n >=================< \n " + groundzObj[0].description);
+        console.log("\n >=================< \n " + example[0].Name);
         // console.log(groundzData);
       } catch (error) {
         res
           .status(400)
           .json({ error: { name: error.name, msg: error.message } });
       }
-
+      // for (i = 0; i < example.length; i++) {
       res.render("example", {
-        example: dbExample
+        example: example
       });
+      // }
     } catch (error) {
       res
         .status(400)
