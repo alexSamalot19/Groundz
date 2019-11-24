@@ -3,7 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-var carddel = $("#cardDel");
+// var carddel = $("#cardDel");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -137,11 +137,11 @@ $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 // carddel.on("click", deletemeButton());
 $(document).ready(function() {
-  $("#deleteme").click(function(evt) {
+  $(".delete").click(function(evt) {
     console.log(evt);
     // evt.stopPropagation();
     evt.stopImmediatePropagation();
-    debugger;
+    // debugger;
     var id = $(this).attr("data-id");
     deletemeButton(id);
   });
