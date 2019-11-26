@@ -230,6 +230,22 @@ body {
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 }
+
+/*400 and 404 pages ------------------------------------------------------ */
+
+
+.block {
+  display: block;
+}
+.center-y{
+  margin-top: 100px;
+  }
+
+.text-center{
+  text-align: center;
+}
+
+
 @media only screen and (max-width: 56.25em) {
   .navigation__background {
     top: 4.5rem;
@@ -355,6 +371,14 @@ body {
   top: 0;
   transform: rotate(-135deg);
 }
+
+.center-y{
+  margin-top: 100px;
+  }
+
+
+
+
 
 
 /* ////////////// */
