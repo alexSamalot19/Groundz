@@ -1,38 +1,11 @@
-# Project Starter
+# Groundz Project
 
-In this activity we will add the provided boilerplate to group project repos.
+Groundz is for anyone looking to explore the national parks in whatever state they may end up in.
+An application that helps the user to explore the US National Parks and plan a trip.
 
 ## Instructions
 
-* Only one member of each group should complete this activity while the others watch.
-
-* Copy the entire 04-STU_PROJECT-STARTER folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
-
-* Rename the copied folder to the name of your project.
-
-* Open the copied project folder's `package.json` file and change its `name` property to the name of your project.
-
-* CD to the root of the copied project folder with your terminal and run the following commands:
-
-  ```
-  git init
-  git add .
-  git commit -m "Initial commit"
-  ```
-
-* Then copy the GitHub repo's remote SSH URL (the same URL you'd use to clone the repo).
-
-* Run the following commands in your terminal, replacing <remote-url> with your GitHub repo's remote SSH URL.
-
-  ```
-  git remote add origin <remote-url>
-  git push origin master
-  ```
-
-* If completed successfully you should see all of the files uploaded to GitHub.
-
-* All other group members should now clone the repo.
-
-* Discuss as a group:
+* The user starts by naming the trip and setting the search by state
+[/public/images/ReadMe images/UserStart.PNG]
 
   * How would you now add changes to this project?
