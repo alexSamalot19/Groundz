@@ -9,6 +9,18 @@ body {
 .list-group-item {
   line-height: 2.5;
 }
+a{
+  text-decoration: none;
+}
+a:link {
+  color:rgba(60, 157, 155, 0.8);
+  text-decoration: none;
+}
+
+a:visited {
+ text-decoration: none;
+}
+
 
 #submit{
   margin-left: 300px;
