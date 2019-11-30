@@ -1,38 +1,85 @@
-# Project Starter
+![Logo](public/images/320x120_horizontal_ground_logo_white-01.png)
 
-In this activity we will add the provided boilerplate to group project repos.
 
-## Instructions
+<br>
 
-* Only one member of each group should complete this activity while the others watch.
+## Problem
 
-* Copy the entire 04-STU_PROJECT-STARTER folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
+Groundz is for anyone looking to explore the national parks in whatever state they may end up in. A viewer may need to google the parks in their area but what about a way to track places their friends have been interested in? Groundz remembers your parks by generating cards with your trip information.
 
-* Rename the copied folder to the name of your project.
+<br>
 
-* Open the copied project folder's `package.json` file and change its `name` property to the name of your project.
+## Overview of App Organization
 
-* CD to the root of the copied project folder with your terminal and run the following commands:
-
-  ```
-  git init
-  git add .
-  git commit -m "Initial commit"
-  ```
-
-* Then copy the GitHub repo's remote SSH URL (the same URL you'd use to clone the repo).
-
-* Run the following commands in your terminal, replacing <remote-url> with your GitHub repo's remote SSH URL.
+This is app contains the following files:
 
   ```
-  git remote add origin <remote-url>
-  git push origin master
+  Full-Stack
+    - config
+      - config.json
+    - models
+      - example.js
+      - index.js
+      - schema.sql
+      - test.sql
+    - public
+      - images
+      - js
+        - index.js
+      - styles
+        - styles.css
+    - routes
+      - apiRoutes.js
+      - htmlRoutes.js
+    - test
+      - canary.test.js
+    - views
+      - layouts
+        - main.handlebars
+      - partials
+        - cards
+          - card-block.handlebars
+          - card-parks.handlebars
+      - 400.handlebars
+      - 404.handlebars
+      - aboutUs.handlebars
+      - example.handlebars
+      - index.handlebars
+    - node_modules
+    - package.json
+    - server.js
+    - .gitignore
   ```
+<br>
 
-* If completed successfully you should see all of the files uploaded to GitHub.
+## Run Instructions
 
-* All other group members should now clone the repo.
+The user begins at:
+![GroundzSearch](public/images/GroundzSearch.png)
 
-* Discuss as a group:
+<br>
 
-  * How would you now add changes to this project?
+After a search is submitted a card is made and saved to the database with trip information:
+![GroundzCards](public/images/GroundzCards.png)
+
+When the users card is clicked the infomation regarding the trip options from the National Parks API is displayed as below:
+![GroundsResults](public/images/GroundzResults.png)
+
+## This App Utilizes
+
+   * [Node](https://nodejs.org/en/about/)
+
+   * [Express](https://www.npmjs.com/package/express)
+
+   * [Handlebars](https://handlebarsjs.com/)
+
+   * [Sequelize](https://www.npmjs.com/package/sequelize)
+
+   <br>
+
+## Development Team
+
+My name is Alex I worked on the backend of the website my portfolio can be found
+[here]( https://alexsamalot19.github.io/Samalot-Alexander-Portfolio/).
+
+We designed this app using existing APIs and packages listed in the **This App Utilizes** section. We used Node and Sequelize to query and route data in this app, and Handlebars to generate the HTML. The site is deployed to Heroku [here](https://the-groundz.herokuapp.com/).

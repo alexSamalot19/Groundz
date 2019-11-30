@@ -1,9 +1,7 @@
 var db = require("../models");
 var axios = require("axios");
-var fs = require("fs");
-var path = require('path');
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Load index page
   app.get("/", async (req, res) => {
     try {
@@ -21,13 +19,12 @@ module.exports = function (app) {
   // Load About Us page
   app.get("/aboutUs", async (req, res) => {
     try {
-      res.render("aboutUs")
+      res.render("aboutUs");
       if (error) {
         console.log(`Error: ${error.error}  Message: ${error.message}`);
       } else {
         res.render(data);
       }
-
     } catch (error) {
       res.render({ error: { name: error.name, msg: error.message } });
     }
@@ -46,8 +43,8 @@ module.exports = function (app) {
       // const { data } =
       const groundzData = await axios.get(
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        groundzName +
-        "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
+          groundzName +
+          "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
       );
 
       const example = groundzData.data.data.map(it => ({
