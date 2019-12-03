@@ -2,37 +2,8 @@
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-// var carddel = $("#cardDel");
-
-// // The API object contains methods for each kind of request we'll make
-// var API = {
-//   saveExample: function(example) {
-//     console.log(example);
-//     return $.ajax({
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       type: "POST",
-//       url: "api/examples",
-//       data: JSON.stringify(example)
-//     });
-//   },
-//   getExamples: function() {
-//     return $.ajax({
-//       url: "api/examples",
-//       type: "GET"
-//     });
-//   },
-//   deleteExample: function(id) {
-//     return $.ajax({
-//       url: "api/examples/" + id,
-//       type: "DELETE"
-//     });
-//   }
-// };
 
 const getParkData = async input => {
-  // const input =  $('#example-description').value
   const res = await fetch(`/api/parks/${input}`, {
     method: "GET"
   });
@@ -54,9 +25,7 @@ var handleFormSubmit = function(event) {
     alert("You must enter an example text and description!");
     return;
   }
-  // API.saveExample(example).then(function() {
 
-  // });
   const user = $exampleText.val().trim();
   const ST = $exampleDescription.val().trim();
   const input = user.concat(ST);
@@ -83,14 +52,10 @@ let deletemeButton = async id => {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
-// carddel.on("click", deletemeButton());
 $(document).ready(function() {
   $(".delete").click(function(evt) {
     console.log(evt);
-    // evt.stopPropagation();
     evt.stopImmediatePropagation();
-    // debugger;
     var id = $(this).attr("data-id");
     deletemeButton(id);
   });

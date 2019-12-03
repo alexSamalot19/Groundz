@@ -39,8 +39,6 @@ module.exports = function(app) {
       console.log(dbExample.dataValues.description);
 
       const groundzName = dbExample.dataValues.description;
-      console.log("\n >===oooo======< \n " + groundzName);
-      // const { data } =
       const groundzData = await axios.get(
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
           groundzName +
@@ -54,19 +52,9 @@ module.exports = function(app) {
         Description: it.description
       }));
 
-      try {
-        console.log("\n >=================< \n " + example[0].Name);
-        // console.log(groundzData);
-      } catch (error) {
-        res
-          .status(400)
-          .json({ error: { name: error.name, msg: error.message } });
-      }
-      // for (i = 0; i < example.length; i++) {
       res.render("example", {
         example: example
       });
-      // }
     } catch (error) {
       res
         .status(400)
