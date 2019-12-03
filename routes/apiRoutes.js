@@ -22,7 +22,7 @@ module.exports = function(app) {
     }
   });
 
-  // Delete an example by id
+  // Delete a park by id
   app.delete("/api/examples/:id", async (req, res) => {
     try {
       const result = await db.Example.destroy({ where: { id: req.params.id } });
@@ -34,12 +34,11 @@ module.exports = function(app) {
     }
   });
 
-  // Get the Park Name from the home page an example by id
+  // Get the Park Name from the home page a park by id
   app.get("/api/parks/:allName", async (req, res) => {
     const { allName } = req.params;
     const stateName = allName.slice(-2);
     const userName = allName.slice(0, -2);
-    // const { data } =
     const parkData = await axios.get(
       "https://developer.nps.gov/api/v1/parks?stateCode=" +
         stateName +
@@ -47,14 +46,11 @@ module.exports = function(app) {
     );
 
     const numParks = parkData.data.data.length;
-    console.log("\n >>>>><<<<< \n " + numParks);
     const parkNames = {
       text: userName,
       description: stateName,
       numPark: numParks
     };
-
-    console.log(parkNames);
 
     try {
       await db.Example.create(parkNames);
