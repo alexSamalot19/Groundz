@@ -1,6 +1,6 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $parkText = $("#park-text");
+var $parkDescription = $("#park-description");
 var $submitBtn = $("#submit");
 
 const getParkData = async input => {
@@ -11,36 +11,36 @@ const getParkData = async input => {
   console.log("creating", input);
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new park
+// Save the new park to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var park = {
+    text: $parkText.val().trim(),
+    description: $parkDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(park.text && park.description)) {
+    alert("You must enter an park text and description!");
     return;
   }
 
-  const user = $exampleText.val().trim();
-  const ST = $exampleDescription.val().trim();
+  const user = $parkText.val().trim();
+  const ST = $parkDescription.val().trim();
   const input = user.concat(ST);
 
   console.log(input);
   getParkData(input).then(function() {
     window.location.href = "/";
   });
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $parkText.val("");
+  $parkDescription.val("");
 };
 
 let deletemeButton = async id => {
   console.log(id);
-  await fetch(`/api/examples/${id}`, {
+  await fetch(`/api/parks/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
