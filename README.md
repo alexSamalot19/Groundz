@@ -1,4 +1,4 @@
-![Logo](public/images/320x120_horizontal_ground_logo_white-01.png)
+# Groundz ![Logo](public/images/favicon.ico)
 
 
 <br>
