@@ -63,6 +63,7 @@ After a search is submitted a card is made and saved to the database with trip i
 ![GroundzCards](public/images/GroundzCards.png)
 
 When the users card is clicked the infomation regarding the trip options from the National Parks API is displayed as below:
+<br>
 ![GroundsResults](public/images/GroundzResults.png)
 
 ## This App Utilizes
