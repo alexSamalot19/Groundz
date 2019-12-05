@@ -26,7 +26,7 @@
         <h3>Make a new Nature card, enter A name for it here.</h3>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group"></div>
-          <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+          <input type="text" id="park-text" class="form-control" aria-describedby="park-text"
             placeholder="Enter Name">
       </div>
       <div class="col-6 mt-1 text-left">
@@ -34,7 +34,7 @@
         <div class="form-group">
           <div class="form-group">
             <div class="col-sm-10">
-              <select class="form-control" id="example-description" name="state">
+              <select class="form-control" id="park-description" name="state">
                 <option value="">N/A</option>
                 <option value="AK">Alaska</option>
                 <option value="AL">Alabama</option>
@@ -106,7 +106,7 @@
   <div id="home">
     <div class="container">
       <div class="row">
-        {{#each examples}}
+        {{#each parks}}
 
         {{>cards/card-block this}}
         {{/each}}
@@ -121,7 +121,6 @@
     </div>
   </div>
 </div>
-
 
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
   <div class="row">

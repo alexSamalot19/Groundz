@@ -5,10 +5,10 @@ module.exports = function(app) {
   // Load index page
   app.get("/", async (req, res) => {
     try {
-      const dbExamples = await db.Example.findAll({});
+      const dbParks = await db.Park.findAll({});
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        parks: dbParks
       });
     } catch (error) {
       res
@@ -30,30 +30,30 @@ module.exports = function(app) {
     }
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", async (req, res) => {
+  // Load park page and pass in an park by id
+  app.get("/park/:id", async (req, res) => {
     try {
-      const dbExample = await db.Example.findOne({
+      const dbPark = await db.Park.findOne({
         where: { id: req.params.id }
       });
-      console.log(dbExample.dataValues.description);
+      console.log(dbPark.dataValues.description);
 
-      const groundzName = dbExample.dataValues.description;
+      const groundzName = dbPark.dataValues.description;
       const groundzData = await axios.get(
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
           groundzName +
           "&api_key=eYWf8cdqhJTjLKiKn6EpzpRvttfMm8ARxeyJFk6Z"
       );
 
-      const example = groundzData.data.data.map(it => ({
-        User: dbExample.dataValues.text,
+      const park = groundzData.data.data.map(it => ({
+        User: dbPark.dataValues.text,
         Name: it.fullName,
         Weather: it.weatherInfo,
         Description: it.description
       }));
 
-      res.render("example", {
-        example: example
+      res.render("park", {
+        park: park
       });
     } catch (error) {
       res

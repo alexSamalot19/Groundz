@@ -2,20 +2,20 @@ var db = require("../models");
 var axios = require("axios");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", async (req, res) => {
+  // Get all parks
+  app.get("/api/parks", async (req, res) => {
     try {
-      const data = await db.Example.findAll({});
+      const data = await db.Park.findAll({});
       res.json(data);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
     }
   });
 
-  // Create a new example
-  app.post("/api/examples", async (req, res) => {
+  // Create a new park
+  app.post("/api/parks", async (req, res) => {
     try {
-      const result = await db.Example.create(req.body);
+      const result = await db.Park.create(req.body);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });
@@ -23,9 +23,9 @@ module.exports = function(app) {
   });
 
   // Delete a park by id
-  app.delete("/api/examples/:id", async (req, res) => {
+  app.delete("/api/parks/:id", async (req, res) => {
     try {
-      const result = await db.Example.destroy({ where: { id: req.params.id } });
+      const result = await db.Park.destroy({ where: { id: req.params.id } });
       const deletedRowCount = result;
       const status = deletedRowCount > 0 ? 200 : 404;
       res.status(status).json({ deletedRowCount });
@@ -53,7 +53,7 @@ module.exports = function(app) {
     };
 
     try {
-      await db.Example.create(parkNames);
+      await db.Park.create(parkNames);
       res.json(parkNames);
     } catch (error) {
       res.status(400).json({ error: { name: error.name, msg: error.message } });

@@ -1,4 +1,4 @@
-![Logo](public/images/320x120_horizontal_ground_logo_white-01.png)
+# Groundz ![Logo](public/images/favicon.ico)
 
 
 <br>
@@ -63,6 +63,7 @@ After a search is submitted a card is made and saved to the database with trip i
 ![GroundzCards](public/images/GroundzCards.png)
 
 When the users card is clicked the infomation regarding the trip options from the National Parks API is displayed as below:
+<br>
 ![GroundsResults](public/images/GroundzResults.png)
 
 ## This App Utilizes
