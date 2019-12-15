@@ -1,11 +1,15 @@
 # Groundz ![Logo](public/images/favicon.ico)
-
-
 <br>
 
 ## Problem
 
 Groundz is for anyone looking to explore the national parks in whatever state they may end up in. A viewer may need to google the parks in their area but what about a way to track places their friends have been interested in? Groundz remembers your parks by generating cards with your trip information.
+
+<br>
+
+## Build Status
+
+![Build Status](https://travis-ci.com/alexSamalot19/full-stack.svg?branch=master)
 
 <br>
 
@@ -18,7 +22,7 @@ This is app contains the following files:
     - config
       - config.json
     - models
-      - example.js
+      - park.js
       - index.js
       - schema.sql
       - test.sql
@@ -43,7 +47,7 @@ This is app contains the following files:
       - 400.handlebars
       - 404.handlebars
       - aboutUs.handlebars
-      - example.handlebars
+      - park.handlebars
       - index.handlebars
     - node_modules
     - package.json
@@ -83,4 +87,4 @@ When the users card is clicked the infomation regarding the trip options from th
 My name is Alex I worked on the backend of the website my portfolio can be found
 [here]( https://alexsamalot19.github.io/Samalot-Alexander-Portfolio/).
 
-We designed this app using existing APIs and packages listed in the **This App Utilizes** section. We used Node and Sequelize to query and route data in this app, and Handlebars to generate the HTML. The site is deployed to Heroku [here](https://the-groundz.herokuapp.com/).
+The Goundz team designed this app using existing APIs and packages listed in the **This App Utilizes** section. We used Node and Sequelize to query and route data in this app, and Handlebars to generate the HTML. The site is deployed to Heroku [here](https://the-groundz.herokuapp.com/).
