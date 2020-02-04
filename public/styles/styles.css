@@ -37,9 +37,6 @@ a:visited {
 
 #topSection {
   font-family: 'IBM Plex Sans', sans-serif;
-  /* font-family: 'Rubik', sans-serif; */
-  /* font-family: 'Gravitas One', cursive; */
-  /* font-family: 'Roboto Slab', serif; */
   background-image: linear-gradient(
       to right bottom,
       rgba(60, 157, 155, 0.8),
@@ -47,7 +44,6 @@ a:visited {
     ),
     url(https://images.pexels.com/photos/361104/pexels-photo-361104.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
   height: 650px;
-  /* background-image: url(https://images.pexels.com/photos/2217365/pexels-photo-2217365.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260); */
   background-position: center;
   color: #f8f8f8;
 }
@@ -66,9 +62,6 @@ a:visited {
   padding: 2px 16px;
 }
 
-/* #nameInput{
-  margin-left: -340px;
-} */
 .align {
   padding-top: 20px;
   width: 100%;
@@ -237,15 +230,12 @@ a:visited {
   position: fixed;
   top: 2.5rem;
   right: 2.5rem;
-  /* background-image: radial-gradient(#7ed56f, #28b485); */
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 /*400 and 404 pages ------------------------------------------------------ */
-
-
 .block {
   display: block;
 }
@@ -387,13 +377,6 @@ a:visited {
 .center-y{
   margin-top: 100px;
   }
-
-
-
-
-
-
-/* ////////////// */
 
 .card2{
   background-color: #6ba8a9;
